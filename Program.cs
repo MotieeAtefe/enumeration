@@ -8,13 +8,16 @@ namespace enumeration
         {
 
             TrafficLightController trafficLightController = new TrafficLightController();
-            trafficLightController.GetLightDescription();   
+            for(int i=0; i< 5; i++) 
+            {
+                trafficLightController.DisplayColor();
+                Console.WriteLine("if You want change trafficLigting press Enter");
+                Console.ReadLine();
+                trafficLightController.ChangeColor();
+                
 
-            trafficLightController.CurrentLight = TrafficLight.green;
-            trafficLightController.GetLightDescription();
-
-            trafficLightController.CurrentLight = TrafficLight.yellow;
-            trafficLightController.GetLightDescription();
+            }
         }
+            
     }
 }

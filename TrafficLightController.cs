@@ -3,36 +3,37 @@ using System.Timers;
 
 namespace enumeration
 {
+    public enum TrafficLight
+    {
+        red, green, yellow
+    }
     internal class TrafficLightController
     {
-      
-        public enum TrafficLight
-        {
-            red, green, yellow
-        }
         public TrafficLight CurrentLight { get; set; }
         public TrafficLightController()
         {
             CurrentLight = TrafficLight.red;
             
         }
-        public void GetLightDescription()
+        public void ChangeColor()
         {
             switch (CurrentLight)
             {
+
                 case TrafficLight.red:
-                    Console.WriteLine("Stop! The light is red.");
+                    CurrentLight = TrafficLight.green;
                     break;
                 case TrafficLight.yellow:
-                    Console.WriteLine("Caution! The light is yellow.");
+                    CurrentLight = TrafficLight.red;
                     break;
                 case TrafficLight.green:
-                    Console.WriteLine("Go! The light is green.");
-                    break;
-                default:
-                    Console.WriteLine("Unknown light state.");
+                    CurrentLight = TrafficLight.yellow;
                     break;
             }
+        }
+        public void DisplayColor()
+        {
+            Console.WriteLine($"The currenty is: {CurrentLight}");
         }
 
       
